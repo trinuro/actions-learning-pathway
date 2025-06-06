@@ -9,6 +9,6 @@ jobs:
   hello-world-job:
     runs-on: ubuntu-latest # specify OS of runner
   steps:
-    - name: Check out my action!
+    - name: 'Check out my action :rocket:'
       uses: actions/checkout@v4
     - run: echo "$(cat hello_word.txt)"
