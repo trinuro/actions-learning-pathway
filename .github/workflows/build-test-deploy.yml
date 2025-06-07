@@ -59,7 +59,7 @@ jobs:
       - run: npm run build
       # store the artifact (built website) because we want the static site
       - name: upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           # specify path of directory containing static pages
           path: "./out"
@@ -67,7 +67,7 @@ jobs:
       - name: deploy 
         # specify A unique identifier for the step
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v3
 
 
     
