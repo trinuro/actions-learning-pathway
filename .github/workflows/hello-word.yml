@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest # specify OS of runner
     steps:
     - name: Check out my action
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
     - run: echo "$(cat hello_word.txt)"
