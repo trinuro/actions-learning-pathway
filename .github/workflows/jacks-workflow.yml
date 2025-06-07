@@ -1,0 +1,10 @@
+name: jacks-workflow
+
+on: push
+
+jobs:
+  job1:
+    # use another workflow
+    uses: trinuro/actions-learning-pathway/.github/workflows/build-test.yml@v.10
+    with:
+      node-version: '18.x'
