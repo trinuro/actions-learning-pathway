@@ -19,12 +19,12 @@ jobs:
     name: Runs tests
     needs: build-job # Waits for build-job to succeed
     runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
+    steps: 
+      - name: checkout repo
         uses: actions/checkout@v3
       - name: use node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: npm install 
-      - run: npm test # runs test js
+      - run: npm install
+      - run: npm test
