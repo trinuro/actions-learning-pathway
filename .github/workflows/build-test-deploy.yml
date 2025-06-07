@@ -1,23 +1,19 @@
 name: build-test-deploy
-# define trigger event
 on: push
-# define actions
 jobs: 
-  build-job:
-    name: Build the server
+  build:
     runs-on: ubuntu-latest
     steps: 
-      - name: Check out repository code
+      - name: checkout repo
         uses: actions/checkout@v3
       - name: use node.js
         uses: actions/setup-node@v3
-        with: # pass in arguments
+        with:
           node-version: '18.x'
-      - run: npm install # npm install will install all modules listed as dependencies in package.json
-      - run: npm run build # start the server
-  test:
-    name: Runs tests
-    needs: build-job # Waits for build-job to succeed
+      - run: npm install
+      - run: npm run build 
+  test: 
+    needs: build
     runs-on: ubuntu-latest
     steps: 
       - name: checkout repo
