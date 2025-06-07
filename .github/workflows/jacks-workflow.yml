@@ -5,6 +5,7 @@ on: push
 jobs:
   job1:
     # use another workflow
-    uses: ./.github/workflows/build-test.yml@v1.0
+    # cannot specify version in a local workflow
+    uses: ./.github/workflows/build-test.yml
     with:
       node-version: '18.x'
