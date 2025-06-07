@@ -1,14 +1,9 @@
-# name workflow
 name: hello-world
-# Configure trigger event
-on: 
-  push # triggers when you push a commit/tag or create a new repo from template
-# define jobs
-jobs:
-  # define job id 
+on: push
+jobs: 
   hello-world-job:
-    runs-on: ubuntu-latest # specify OS of runner
-    steps:
-    - name: Check out my action
-      uses: actions/checkout@v3
-    - run: echo "$(cat hello_word.txt)"
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "$(cat hello_world.txt)"
