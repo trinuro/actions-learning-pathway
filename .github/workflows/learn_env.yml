@@ -28,4 +28,4 @@ jobs:
     - name: Echo GitHub secret
       env: 
         GH_SECRET: ${{secrets.MY_GITHUB_SECRET}}
-      run: echo "My GitHub secret is $GH_SECRET" # This is the secret you added in a previous step
+      run:  [ "$GH_SECRET" = "oh no" ] && echo "Match" || echo "No match" # This is the secret you added in a previous step
