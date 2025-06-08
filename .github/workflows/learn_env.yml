@@ -26,4 +26,6 @@ jobs:
       run: echo "My environment variable is $MY_VARIABLE" # This is your variable that will not be masked
       
     - name: Echo GitHub secret
-      run: echo "My GitHub secret is ${{ secrets.MY_GITHUB_SECRET }}" # This is the secret you added in a previous step
+      env: 
+        GH_SECRET: ${{secrets.MY_GITHUB_SECRET}}
+      run: echo "My GitHub secret is $GH_SECRET" # This is the secret you added in a previous step
