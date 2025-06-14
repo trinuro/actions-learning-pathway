@@ -1,22 +1,9 @@
-on: 
-  workflow_dispatch:
-    inputs: # define inputs
-      name: # input#1 is called name
-        required: True # required input
-        type: string # https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputsinput_idtype
-        default: "World"
-      run_it: 
-        required: False
-        type: boolean
-        default: True
+on: workflow_dispatch
 jobs:
   greet:
-    # check if we can run_it is True
-    if: ${{inputs.run_it}} # can be job-level or step-level
-    runs-on: ubuntu-latest
-    env:
-      NAME: ${{inputs.name}} # Pass the GitHub env variable into the container
+    runs-on: ubuntu-latest # only linux container available
     steps:
+      - name: Check out the Repo
+        uses: actions/checkout@v4 # default checkout ${{ github.repository }}
       - name: Greet the user
-        run: echo "Hello $NAME"
-        
+        run: echo "Hello World"
