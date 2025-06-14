@@ -1,0 +1,7 @@
+on: workflow_dispatch
+jobs:
+  greet:
+    runs-on: ubuntu-latest # only linux container available
+    steps:
+      - name: Greet the user
+        run: echo "Hello World"
