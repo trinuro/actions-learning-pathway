@@ -1,0 +1,15 @@
+name: workflow-dispatch
+on: workflow_dispatch
+env: 
+  WORKFLOW_ENV_VAR: "WORKFLOW >" # workflow level
+jobs:
+  # steps level no environment
+  greet:
+    runs-on: ubuntu-latest
+    env:
+      JOB_ENV_VAR: "JOB >" # job level
+    steps:
+      - name: Success
+        env: 
+          STEP_ENV_VAR: "STEP" # step level
+        run: echo "$WORKFLOW_ENV_VAR $JOB_ENV_VAR $STEP_ENV_VAR"
