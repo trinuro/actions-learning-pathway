@@ -7,5 +7,5 @@ jobs:
     steps:
       - name: Greet the user
         env:
-          NAME: ${{client_payload.name}}
+          NAME: ${{github.event.client_payload.name}}
         run: echo "Hello $NAME"
