@@ -1,7 +1,7 @@
 name: Trigger greet.yml
 on: workflow_dispatch
 jobs:
-	job1:
+  job1:
     runs-on: ubuntu-latest
     permissions:
       contents: write
