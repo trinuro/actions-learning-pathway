@@ -1,6 +1,6 @@
 ## Essentials of GitHub Actions learning pathway demo repository
 
-![dinosaur](https://github.com/trinuro/actions-learning-pathway/actions/workflows/test-group-msg/badge.svg)
+[![Set env in a step](https://github.com/trinuro/actions-learning-pathway/actions/workflows/test-GITHUB-ENV.yml/badge.svg)](https://github.com/trinuro/actions-learning-pathway/actions/workflows/test-GITHUB-ENV.yml)
 
 This repository contains the core web application files and configuration you'll need to follow along through the [Essentials of automated application deployment with GitHub Actions & GitHub Pages](https://resources.github.com/learn/pathways/automation/essentials/automated-application-deployment-with-github-actions-and-pages/) module.
 
