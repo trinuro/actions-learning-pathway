@@ -5,7 +5,7 @@ jobs:
     name: test action 
     runs-on: ubuntu-latest
     steps:
-      - uses: trinuro/learn-custom-actions@v1.1
+      - uses: trinuro/learn-custom-actions@v1.2
         id: greet
         with:
           who-to-greet: froginacup
