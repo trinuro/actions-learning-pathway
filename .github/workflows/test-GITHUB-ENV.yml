@@ -1,0 +1,10 @@
+name: Set env in a step
+on: push
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pass env variable
+        run: echo "IDOL=YAOSOBI" >> $GITHUB_ENV
+      - name: Echo env
+        run: echo "Hello ${{IDOL}}"
