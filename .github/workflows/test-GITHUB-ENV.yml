@@ -7,4 +7,4 @@ jobs:
       - name: Pass env variable
         run: echo "IDOL=YAOSOBI" >> $GITHUB_ENV
       - name: Echo env
-        run: echo "Hello ${{IDOL}}"
+        run: echo "Hello ${{env.IDOL}}"
