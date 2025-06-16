@@ -5,8 +5,9 @@ jobs:
     name: test action 
     runs-on: ubuntu-latest
     steps:
-      - uses: trinuro/learn-custom-actions
+      - uses: trinuro/learn-custom-actions@v1.0
         id: greet
         with:
           who-to-greet: froginacup
-      - run: echo "Action ran on ${{steps.greet.output.time}}"
+      - run: echo "Action ran on ${{steps.greet.output.time}}" 
+        # To access the output of a step, give it an id and assess it using steps.<id>.output.time
