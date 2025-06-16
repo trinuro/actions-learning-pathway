@@ -9,5 +9,5 @@ jobs:
         id: greet
         with:
           who-to-greet: froginacup
-      - run: echo "Action ran on ${{steps.greet.output.time}}" 
+      - run: echo "Action ran on ${{steps.greet.outputs.time}}" 
         # To access the output of a step, give it an id and assess it using steps.<id>.output.time
