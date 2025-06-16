@@ -10,3 +10,9 @@ jobs:
           echo "Msg 1"
           echo "Msg 2"
           echo "::endgroup::"
+      - name: "Debug Message"
+        run: echo "::debug::This is a debug Message"
+      - name: Mask value
+        run: echo "::add-mask::${{secrets.GITHUB_TOKEN}}"
+      - name: Trigger failure
+        run: echo "::error::This is an error message"
