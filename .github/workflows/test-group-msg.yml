@@ -10,7 +10,8 @@ jobs:
           echo "Msg 1"
           echo "Msg 2"
           echo "::endgroup::"
-      - name: "Debug Message"
+      - name: "Debug Message" 
+        # You must create a secret named ACTIONS_STEP_DEBUG with the value true to see the debug messages set by this command in the log. 
         run: echo "::debug::This is a debug Message"
       - name: Mask value
         run: echo "::add-mask::${{secrets.GITHUB_TOKEN}}"
