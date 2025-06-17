@@ -25,7 +25,7 @@ jobs:
       - name: Print env variable
         run: |
           echo "$current_user"
-          echo "${{greetings}}"
+          echo "$greetings"
 
   job2:
     runs-on: ubuntu-latest
