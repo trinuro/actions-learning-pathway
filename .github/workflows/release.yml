@@ -1,19 +1,19 @@
 name: Create new release
 
 on:
-  pull-request:
-    type: [labeled] # Trigger every PR with labels
+  pull_request:
+    types: [labeled] # Trigger every PR with labels
 
 jobs:
   job1:
     runs-on: ubuntu-latest
     permissions:
-      content: write
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Create Release 
-        if: contains(github.events.pull_request.labels.*.name, 'release')
+        if: contains(github.event.pull_request.labels.*.name, 'release')
         uses: actions/create-release@v1 # not maintained
         env: 
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
