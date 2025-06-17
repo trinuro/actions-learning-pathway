@@ -8,7 +8,7 @@ jobs:
     services:
       mysql: # label/hostname of the system
         image: mysql
-        environment:
+        env:
           MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}} # testing, not for production lol
     env:
       MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}}
