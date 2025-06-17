@@ -6,6 +6,25 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - uses: trinuro/learn-docker-custom-actions@v1.3
+      - name: Access docker
+        uses: trinuro/learn-docker-custom-actions@v1.3
+        id: access_docker
         with:
           name: Dinosaur
+      - name: Print the outputs
+        run: |
+          echo "Greetings => ${{steps.access_docker.outputs.greetings}}"
+          echo "User executing the commands => ${{steps.access_docker.outputs.current_user}}"
+      - name: Set environment variable
+        run: |
+          echo "greetings=${{steps.access_docker.outputs.greetings}}" >> $GITHUB_ENV
+          echo "current_user=${{steps.access_docker.outputs.current_user}}" >> $GITHUB_ENV
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the access_docker step output 
+        run: echo "${{steps.access_docker.outputs.greetings}}"
+        continue-on-error: true
+      - name: Print the access_docker in environment
+        run: echo "${{env.greetings}}"
