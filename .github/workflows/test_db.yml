@@ -1,0 +1,19 @@
+name: MySQL container example
+on: workflow_dispatch
+jobs:
+  container-job:
+    runs-on: ubuntu-latest
+    # Docker Hub image that container-job executes in
+    container: node:16-bullseye 
+    services:
+      mysql: # label/hostname of the system
+        image: mysql
+        environment:
+          MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}} # testing, not for production lol
+  interact-with-container:
+    runs-on: ubuntu-latest
+    env:
+      MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}}
+    steps:
+      - name: Attempt to log into the server
+        run: mysql -u root -p $MYSQL_ROOT_PASSWORD
