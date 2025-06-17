@@ -5,6 +5,9 @@ on: workflow_dispatch
 jobs:
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      current_user: ${{steps.access_docker.outputs.current_user}}
+      greetings: ${{steps.access_docker.outputs.greetings}}
     steps:
       - name: Access docker
         uses: trinuro/learn-docker-custom-actions@v1.3
@@ -20,7 +23,9 @@ jobs:
           echo "greetings=${{steps.access_docker.outputs.greetings}}" >> $GITHUB_ENV
           echo "current_user=${{steps.access_docker.outputs.current_user}}" >> $GITHUB_ENV
       - name: Print env variable
-        run: echo "${{github.env.current_user}}"
+        run: |
+          echo "$current_user"
+          echo "$greetings"
 
   job2:
     runs-on: ubuntu-latest
@@ -30,7 +35,9 @@ jobs:
         run: echo "${{steps.access_docker.outputs.greetings}}"
         continue-on-error: true
       - name: Print the access_docker needs context
-        run: echo "${{needs.job1.outputs.greetings}}"
+        run: |
+          echo "${{needs.job1.outputs.greetings}}"
+          echo "${{needs.job1.outputs.current_user}}"
         continue-on-error: true
       - name: Print the access_docker in environment
         run: echo "${{env.greetings}}"
