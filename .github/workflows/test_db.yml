@@ -13,6 +13,8 @@ jobs:
     env:
       MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}}
     steps:
+      - name: Turn on mysql service?
+        run: sudo systemctl start mysql.service
       - name: Attempt to log into the server
         run: mysql -u root -p $MYSQL_ROOT_PASSWORD
 
