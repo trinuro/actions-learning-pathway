@@ -10,10 +10,16 @@ jobs:
         image: mysql
         environment:
           MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}} # testing, not for production lol
+    env:
+      MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}}
+    steps:
+      - name: Attempt to log into the server
+        run: mysql -u root -p $MYSQL_ROOT_PASSWORD
+
   interact-with-container:
     runs-on: ubuntu-latest
     env:
       MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}}
     steps:
       - name: Attempt to log into the server
-        run: mysql -u root -p $MYSQL_ROOT_PASSWORD
+        run: mysql -u root -p $MYSQL_ROOT_PASSWORD -h mysql 
