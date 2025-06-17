@@ -6,6 +6,6 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - uses: trinuro/learn-docker-custom-actions@v1.1
+      - uses: trinuro/learn-docker-custom-actions@v1.2
         with:
           name: Dinosaur
