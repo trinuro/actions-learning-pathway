@@ -18,6 +18,7 @@ jobs:
 
   interact-with-container:
     runs-on: ubuntu-latest
+    needs: container-job
     env:
       MYSQL_ROOT_PASSWORD: ${{secrets.MYSQL_ROOT_PASSWORD}}
     steps:
