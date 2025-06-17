@@ -6,7 +6,8 @@ jobs:
     services:
       mysql: # label/hostname of the system
         image: mysql
-        ports: 3306:3306 # default mysql port
+        ports: 
+          - 3306:3306 # default mysql port
     steps:
       - name: Check running ports
         run: ss -tlnp
