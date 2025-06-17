@@ -1,0 +1,17 @@
+name: upload-file-artifact
+on: workflow_dispatch
+jobs:
+  create-and-upload:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: './pages'
+
+    steps:
+      - name: Create file 
+        run: echo "Hi, I am $GITHUB_ACTOR in $GITHUB_REPOSITORY. I am in $GITHUB_PATH" > hello.txt
+      - name: Upload artifact 
+        uses: actions/upload-artifact@v4
+        with:
+          path: hello.txt
+          name: user_info
