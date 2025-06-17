@@ -1,0 +1,20 @@
+name: Create new release
+
+on:
+  pull-request:
+    type: [labeled] # Trigger every PR with labels
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    permissions:
+      content: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Create Release 
+        if: contains(github.events.pull_request.labels.*.name, 'release')
+        uses: actions/create-release@v1 # not maintained
+        env: 
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      
