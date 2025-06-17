@@ -7,6 +7,6 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: hello.txt
+          name: hello
       - name: Read file
         run: cat hello.txt
