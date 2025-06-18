@@ -12,3 +12,16 @@ jobs:
         with:
           path: hello.txt
           name: user_info
+      - name: Download current workflow artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: user_info
+          path: hello_current.txt
+      - name: Download previous workflow artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: user_info
+          run-id: ${{github.run_id}} - 1
+          path: hello_old.txt
+      - name: List the current dir 
+        run: ls 
