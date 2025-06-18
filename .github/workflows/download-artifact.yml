@@ -4,9 +4,13 @@ jobs:
   download-and-read:
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact
+      - name: Download previous workflow artifact
         uses: actions/download-artifact@v4
         with:
           name: user_info
+          repository: trinuro/actions-learning-pathway
+          run-id: 15735104184
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          path: hello_old.txt
       - name: Read file
         run: cat hello.txt
